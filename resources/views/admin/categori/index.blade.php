@@ -4,11 +4,10 @@
     <div class="row">
         <div class="card-header">
                 <div class="col-9">
-                    <h4 class="card-title">Data Sales</h4>
+                    <h4 class="card-title">Kategori Produk</h4>
                 </div>
                 <div class="col-3">
-                    <a href="#" class="btn btn-primary float-right" data-toggle="modal" data-target="#modalSales">Tambah</a>
-
+                    <a href="#" class="btn btn-primary float-right" data-toggle="modal" data-target="#modalKategori">Tambah</a>
                 </div>
         </div>
     </div>
@@ -18,21 +17,19 @@
                 <tbody>
                     <tr class="text-center">
                         <th>No</th>
-                        <th>Nama Sales</th>
-                        <th>Toko</th>
+                        <th>Kategori</th>
                         <th>Aksi</th>
                     </tr>
                     @php $no = 1; @endphp
-                    @if(count($data) < 1)
+                    @if(count($categori) < 1)
                     <tr class="text-center">
-                        <td colspan="6">Data Tidak Tersedia</td>
+                        <td colspan="3">Data Tidak Tersedia</td>
                     </tr>
                     @else
-                    @foreach($data as $sales)
-                    <tr class="text-center">
+                    @foreach($categori as $cat)
+                    <tr>
                         <td>{{ $no++ }}</td>
-                        <td>{{ $sales->nama }}</td>
-                        <td>{{ $sales->nama_toko }}</td>
+                        <td>{{ $cat->nama_kategori }}</td>
                         <td class="text-center">
                             <a href="#" class="btn btn-primary">Ubah</a>
                             <a href="#" class="btn btn-danger">Hapus</a>

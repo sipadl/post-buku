@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produk;
+use App\Models\Categori;
 use Illuminate\Http\Request;
 
 class ProdukController extends Controller
@@ -14,7 +15,9 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        return view('admin.produk.index');
+        $produk = Produk::join('categoris', 'produks.id_kategori', '=', 'categoris.id')->get();
+        $categori = Categori::all();
+        return view('admin.produk.index', compact('produk', 'categori'));
     }
 
     /**
@@ -35,7 +38,12 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Produk::create($request->except('_token'));
+        if ($data) {
+            return redirect()->back()->with('success', 'Toko berhasil ditambahkan');
+        } else {
+            return redirect()->back()->with('error', 'Toko gagal ditambahkan');
+        }
     }
 
     /**
@@ -44,9 +52,14 @@ class ProdukController extends Controller
      * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function show(Produk $produk)
+    public function show($id, $id_toko = null)
     {
-        //
+        $toko = $id_toko ?? 1;
+        $data = Produk::select('nama_produk','harga','nama_toko','stok')
+        ->leftJoin('tokos', 'produks.id_toko', '=', 'tokos.id')
+        ->where('produks.id', $id)->where('id_toko', $toko)
+        ->first();
+        return response()->json(['data' => $data]);
     }
 
     /**
@@ -78,8 +91,8 @@ class ProdukController extends Controller
      * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Produk $produk)
+    public function destroy($id)
     {
-        //
+        $delete = Produk::where('id', $id)->delete();
     }
 }

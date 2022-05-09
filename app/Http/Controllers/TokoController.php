@@ -14,7 +14,8 @@ class TokoController extends Controller
      */
     public function index()
     {
-        return view('admin.toko.index');
+        $toko = Toko::all();
+        return view('admin.toko.index', compact('toko'));
     }
 
     /**
@@ -35,7 +36,12 @@ class TokoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Toko::insert($request->except('_token'));
+        if ($data) {
+            return redirect()->back()->with('success', 'Toko berhasil ditambahkan');
+        } else {
+            return redirect()->back()->with('error', 'Toko gagal ditambahkan');
+        }
     }
 
     /**

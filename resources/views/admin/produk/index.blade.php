@@ -19,20 +19,31 @@
                     <tr class="text-center">
                         <th>No</th>
                         <th>Nama Produk</th>
+                        <th>Kategori</th>
                         <th>Harga</th>
                         <th>Stok</th>
                         <th>Aksi</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Baju</td>
-                        <td>Rp. 100.000</td>
-                        <td>10</td>
+                    @php $no = 1; @endphp
+                    @if(count($produk) < 1)
+                    <tr class="text-center">
+                        <td colspan="6">Data Tidak Tersedia</td>
+                    </tr>
+                    @else
+                    @foreach($produk as $prod)
+                    <tr class="text-center">
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $prod->nama_produk }}</td>
+                        <td>{{ $prod->nama_kategori }}</td>
+                        <td>Rp {{ number_format($prod->harga,0) }}</td>
+                        <td>{{ $prod->stok }} Pcs</td>
                         <td class="text-center">
-                            <a href="#" class="btn btn-primary">Edit</a>
+                            <a href="#" class="btn btn-primary">Ubah</a>
                             <a href="#" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
+                    @endforeach
+                    @endif
                 </tbody>
             </table>
         </div>

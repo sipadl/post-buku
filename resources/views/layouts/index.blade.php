@@ -93,131 +93,6 @@
           </div>
         </form>
         <ul class="navbar-nav navbar-right">
-          {{-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
-            <div class="dropdown-menu dropdown-list dropdown-menu-right">
-              <div class="dropdown-header">Messages
-                <div class="float-right">
-                  <a href="#">Mark All As Read</a>
-                </div>
-              </div>
-              <div class="dropdown-list-content dropdown-list-message">
-                <a href="#" class="dropdown-item dropdown-item-unread">
-                  <div class="dropdown-item-avatar">
-                    <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle">
-                    <div class="is-online"></div>
-                  </div>
-                  <div class="dropdown-item-desc">
-                    <b>Kusnaedi</b>
-                    <p>Hello, Bro!</p>
-                    <div class="time">10 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item dropdown-item-unread">
-                  <div class="dropdown-item-avatar">
-                    <img alt="image" src="../assets/img/avatar/avatar-2.png" class="rounded-circle">
-                  </div>
-                  <div class="dropdown-item-desc">
-                    <b>Dedik Sugiharto</b>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                    <div class="time">12 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item dropdown-item-unread">
-                  <div class="dropdown-item-avatar">
-                    <img alt="image" src="../assets/img/avatar/avatar-3.png" class="rounded-circle">
-                    <div class="is-online"></div>
-                  </div>
-                  <div class="dropdown-item-desc">
-                    <b>Agung Ardiansyah</b>
-                    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <div class="time">12 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <div class="dropdown-item-avatar">
-                    <img alt="image" src="../assets/img/avatar/avatar-4.png" class="rounded-circle">
-                  </div>
-                  <div class="dropdown-item-desc">
-                    <b>Ardian Rahardiansyah</b>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit ess</p>
-                    <div class="time">16 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <div class="dropdown-item-avatar">
-                    <img alt="image" src="../assets/img/avatar/avatar-5.png" class="rounded-circle">
-                  </div>
-                  <div class="dropdown-item-desc">
-                    <b>Alfa Zulkarnain</b>
-                    <p>Exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-                    <div class="time">Yesterday</div>
-                  </div>
-                </a>
-              </div>
-              <div class="dropdown-footer text-center">
-                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
-              </div>
-            </div>
-          </li> --}}
-          {{-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
-            <div class="dropdown-menu dropdown-list dropdown-menu-right">
-              <div class="dropdown-header">Notifications
-                <div class="float-right">
-                  <a href="#">Mark All As Read</a>
-                </div>
-              </div>
-              <div class="dropdown-list-content dropdown-list-icons">
-                <a href="#" class="dropdown-item dropdown-item-unread">
-                  <div class="dropdown-item-icon bg-primary text-white">
-                    <i class="fas fa-code"></i>
-                  </div>
-                  <div class="dropdown-item-desc">
-                    Template update is available now!
-                    <div class="time text-primary">2 Min Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <div class="dropdown-item-icon bg-info text-white">
-                    <i class="far fa-user"></i>
-                  </div>
-                  <div class="dropdown-item-desc">
-                    <b>You</b> and <b>Dedik Sugiharto</b> are now friends
-                    <div class="time">10 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <div class="dropdown-item-icon bg-success text-white">
-                    <i class="fas fa-check"></i>
-                  </div>
-                  <div class="dropdown-item-desc">
-                    <b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>
-                    <div class="time">12 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <div class="dropdown-item-icon bg-danger text-white">
-                    <i class="fas fa-exclamation-triangle"></i>
-                  </div>
-                  <div class="dropdown-item-desc">
-                    Low disk space. Let's clean it!
-                    <div class="time">17 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <div class="dropdown-item-icon bg-info text-white">
-                    <i class="fas fa-bell"></i>
-                  </div>
-                  <div class="dropdown-item-desc">
-                    Welcome to Stisla template!
-                    <div class="time">Yesterday</div>
-                  </div>
-                </a>
-              </div>
-              <div class="dropdown-footer text-center">
-                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
-              </div>
-            </div>
-          </li> --}}
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block">Hi, Admin</div></a>
@@ -247,14 +122,7 @@
                 <a href="/" class="nav-link"><i class="fas fa-fire"></i><span>Home</span></a>
               </li>
               <li class="menu-header">Administrator</li>
-              {{-- <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Layout</span></a>
-                <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="layout-default.html">Default Layout</a></li>
-                  <li><a class="nav-link" href="layout-transparent.html">Transparent Sidebar</a></li>
-                  <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
-                </ul>
-              </li> --}}
+              <li><a class="nav-link" href="/kategori"><i class="far fa-square"></i> <span>Kategori</span></a></li>
               <li><a class="nav-link" href="/produk"><i class="far fa-square"></i> <span>Produk</span></a></li>
               <li><a class="nav-link" href="/sales"><i class="far fa-square"></i> <span>Sales</span></a></li>
               <li><a class="nav-link" href="/toko"><i class="far fa-square"></i> <span>Toko</span></a></li>
@@ -290,68 +158,262 @@
     </div>
   </div>
 
+  @php
+    $toko = \App\Models\Toko::all();
+    $kategori = \App\Models\Categori::all();
+    $produk = \App\Models\Produk::all();
+  @endphp
 
   {{-- Modal Produk --}}
   <div class="modal fade" id="modalProduk" tabindex="-1" role="dialog" aria-labelledby="modalProduk" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modalProduk">Modal title</h5>
+          <h5 class="modal-title" id="modalProduk">Tambah Produk</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+        <form action="{{ route('produk.store') }}" enctype="multipart/form-data" method="POST">
+            @csrf
+            <div class="modal-body">
+                <div class="form-group row mb-2">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">Nama Produk</label>
+                    <div class="col-md-10 col-sm-12">
+                        <input type="text" class="form-control" name="nama_produk" placeholder="Nama Produk">
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">Kategori</label>
+                    <div class="col-md-10 col-sm-12">
+                        <select name="id_kategori" class="form-control" id="">
+                            <option value="#">Pilih Satu</option>
+                            @foreach ($kategori as $items)
+                                <option value="{{ $items->id }}">{{ $items->nama_kategori }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">Toko</label>
+                    <div class="col-md-10 col-sm-12">
+                        <select name="id_toko" class="form-control" id="produk">
+                            <option value="#">Pilih Satu</option>
+                            @foreach ($toko as $item)
+                                <option value="{{ $item->id }}">{{ $item->nama_toko }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">Harga</label>
+                    <div class="col-md-10 col-sm-12">
+                        <input type="text" max="13" class="form-control" name="harga" placeholder="Harga">
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">Stok Produk</label>
+                    <div class="col-md-10 col-sm-12">
+                        <input type="number" min="1" class="form-control" name="stok" placeholder="Stok Produk" value="1">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </form>
       </div>
     </div>
   </div>
   {{-- Modal Sales --}}
   <div class="modal fade" id="modalSales" tabindex="-1" role="dialog" aria-labelledby="modalSales" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modalSales">Modal title</h5>
+          <h5 class="modal-title" id="modalSales">Tambah Sales</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+        <form action="{{ route('sales.store') }}" enctype="multipart/form-data" method="POST">
+            @csrf
+            <div class="modal-body">
+                <div class="form-group row mb-2">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">Nama Sales</label>
+                    <div class="col-md-10 col-sm-12">
+                        <input type="text" class="form-control" name="nama" placeholder="Nama Sales">
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">Username</label>
+                    <div class="col-md-10 col-sm-12">
+                        <input type="text" max="13" class="form-control" name="username" placeholder="Username Sales">
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">Password</label>
+                    <div class="col-md-10 col-sm-12">
+                        <input type="password" max="13" class="form-control" name="password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">No Ktp</label>
+                    <div class="col-md-10 col-sm-12">
+                        <input type="text" max="16" class="form-control" name="no_ktp" placeholder="No Ktp Sales">
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">Toko</label>
+                    <div class="col-md-10 col-sm-12">
+                        <select name="id_toko" class="form-control" id="sales">
+                            <option value="#">Pilih Satu</option>
+                            @foreach ($toko as $item)
+                                <option value="{{ $item->id }}">{{ $item->nama_toko }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </form>
       </div>
     </div>
   </div>
-  {{-- Modal Sales --}}
+  {{-- Modal Toko --}}
   <div class="modal fade" id="modalToko" tabindex="-1" role="dialog" aria-labelledby="modalToko" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modalToko">Modal title</h5>
+          <h5 class="modal-title" id="modalToko">Tambah Toko</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+        <form action="{{ route('toko.store') }}" enctype="multipart/form-data" method="POST">
+            @csrf
+            <div class="modal-body">
+                <div class="form-group row mb-2">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">Nama Toko</label>
+                    <div class="col-md-10 col-sm-12">
+                        <input type="text" class="form-control" name="nama_toko" placeholder="Nama Toko">
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">Telp Toko</label>
+                    <div class="col-md-10 col-sm-12">
+                        <input type="text" max="13" class="form-control" name="no_telp" placeholder="Telp Toko">
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">Email Toko</label>
+                    <div class="col-md-10 col-sm-12">
+                        <input type="text" max="13" class="form-control" name="email" placeholder="Email Toko">
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">Alamat Toko</label>
+                    <div class="col-md-10 col-sm-12">
+                        <textarea type="text" class="form-control" name="alamat" rows="3" cols="2" placeholder="Alamat"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </form>
       </div>
     </div>
   </div>
-
+  {{-- Modal Kategori --}}
+  <div class="modal fade" id="modalKategori" tabindex="-1" role="dialog" aria-labelledby="modalKategori" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalKategori">Tambah Kategori</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{{ route('kategori.store') }}" enctype="multipart/form-data" method="POST">
+            @csrf
+            <div class="modal-body">
+                <div class="form-group row">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">Kategori</label>
+                    <div class="col-md-10 col-sm-12">
+                        <input type="text" class="form-control" name="nama_kategori">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  {{-- Modal Transaksi --}}
+  <div class="modal fade" id="modalTransaksi" tabindex="-1" role="dialog" aria-labelledby="modalTransaksi" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTransaksi">Tambah Sales</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{{ route('transaksi.store') }}" enctype="multipart/form-data" method="POST">
+            @csrf
+            <div class="modal-body">
+                <div class="form-group row mb-2">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">Nama Pembeli</label>
+                    <div class="col-md-10 col-sm-12">
+                        <input type="text" class="form-control" name="nama_pembeli" placeholder="Nama Pembeli">
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">Produk</label>
+                    <div class="col-md-10 col-sm-12">
+                        <select name="id_toko" class="form-control" id="transaksi">
+                            <option value="#">Pilih Satu</option>
+                            @foreach ($produk as $itemx)
+                            <option value="{{ $itemx->id }}">{{ $itemx->nama_produk }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label for="" class="label-form-col col-md-2 col-sm-12">Jumlah</label>
+                    <div class="col-md-10 col-sm-12">
+                        <input type="number" max="99" min="1" class="form-control qty" name="jumlah" value="1">
+                    </div>
+                </div>
+                <div class="produk">
+                    <div class="card">
+                        <p>
+                            <span id="nama_produk">Produk</span><br>
+                            Toko <span id="nama_toko">index</span><br>
+                            Harga : <span id="harga_produk"></span>
+                        </p>
+                    </div>
+                    <div class="text-end jumlah">
+                        <h6>Total Bayar : <span id="total"></span></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
   <!-- General JS Scripts -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -361,18 +423,71 @@
   <script src="{{ @asset('assets/js/stisla.js') }}"></script>
 
 
-{{--   <!-- JS Libraies -->
-  <script src="../node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
-  <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
-  <script src="../node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
-  <script src="../node_modules/summernote/dist/summernote-bs4.js"></script>
-  <script src="../node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script> --}}
-
   <!-- Template JS File -->
   <script src="{{ @asset('/assets/js/scripts.js') }}"></script>
   <script src="{{ @asset('/assets/js/custom.js')}}"></script>
 
   <!-- Page Specific JS File -->
   <script src="{{ @asset('assets/js/page/index.js') }}"></script>
+
+<script>
+    var qty = $('.qty').val();
+    $(document).ready(function(){
+        $('.produk').hide();
+        $('#transaksi').change(function(){
+            var id = $(this).val();
+            $.ajax({
+                url : "{{ url('/') }}"+"/produk/"+id,
+                type : "GET",
+                dataType : "JSON",
+                success : function(data){
+                    $('#nama_produk').html(data.data.nama_produk);
+                    $('#nama_toko').html(data.data.nama_toko);
+                    $('#harga_produk').attr('data-value', parseInt(data.data.harga));
+                    if(qty !== null ){
+                        var harga = $('#harga_produk').data('value');
+                        var total = qty * harga;
+                        $('#total').html(formatDesimal(total));
+                    }else{
+                        $('#total').html(formatDesimal(data.data.harga));
+                    }
+                    $('#harga_produk').html(formatDesimal(data.data.harga));
+                    $('.produk').show();
+                }
+            });
+        });
+    });
+
+    $('.qty').on('input', function(){
+        var qty = $(this).val();
+        var harga = $('#harga_produk').data('value');
+        var total = qty * harga;
+        $('#total').html(formatDesimal(total));
+    });
+
+    function formatDesimal(i)
+    {
+        var uang = new Intl.NumberFormat('ja-JP',
+        {style: 'currency', currency: 'IDR'}).format(parseInt(i).toFixed(0));
+
+        var convert = uang.replace('IDR', 'Rp');
+        return convert;
+    }
+// // Get Detail Produk
+// $('#transaksi').on('click', function(e){
+//     e.preventDefault();
+//     $('.produk').show();
+//     var id = $(this).val();
+//     $.ajax({
+//         url: "{{ url('/produk/') }}/"+id,
+//         type: "GET",
+//         dataType: "json",
+//         success: function(data){
+//             console.log(data)
+//         }
+//     });
+// });
+</script>
+  @yield('script')
 </body>
 </html>

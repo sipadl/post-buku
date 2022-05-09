@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categori;
 use Illuminate\Http\Request;
+use DB;
 
 class CategoriController extends Controller
 {
@@ -14,7 +15,8 @@ class CategoriController extends Controller
      */
     public function index()
     {
-        //
+        $categori = Categori::all();
+        return view('admin.categori.index', compact('categori'));
     }
 
     /**
@@ -35,7 +37,12 @@ class CategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Categori::insert($request->except('_token'));
+        if ($data) {
+            return redirect()->back()->with('success', 'Data berhasil ditambahkan');
+        } else {
+            return redirect()->back()->with('error', 'Data gagal ditambahkan');
+        }
     }
 
     /**

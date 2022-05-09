@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->string('password');
             $table->string('no_ktp')->unique();
-            $table->integer('profile')->default(null);
+            $table->string('profile')->nullable()->default(null);
             $table->string('id_toko')->nullable();
             $table->integer('status')->default(0);
             $table->string('roles')->default('user');

@@ -21,7 +21,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/sales', [App\Http\Controllers\HomeController::class, 'sales'])->name('sales');
+Route::post('/sales', [App\Http\Controllers\HomeController::class, 'salesCreate'])->name('sales.store');
 Route::resource('/produk', App\Http\Controllers\ProdukController::class);
 Route::resource('/toko', App\Http\Controllers\TokoController::class);
 Route::resource('/laporan', App\Http\Controllers\LaporanController::class);
 Route::resource('/transaksi', App\Http\Controllers\TransaksiController::class);
+Route::resource('/kategori', App\Http\Controllers\CategoriController::class);
