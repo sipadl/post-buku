@@ -379,7 +379,7 @@
                 <div class="form-group row mb-2">
                     <label for="" class="label-form-col col-md-2 col-sm-12">Produk</label>
                     <div class="col-md-10 col-sm-12">
-                        <select name="id_toko" class="form-control" id="transaksi">
+                        <select name="id_produk" class="form-control" id="transaksi">
                             <option value="#">Pilih Satu</option>
                             @foreach ($produk as $itemx)
                             <option value="{{ $itemx->id }}">{{ $itemx->nama_produk }}</option>
@@ -473,20 +473,6 @@
         var convert = uang.replace('IDR', 'Rp');
         return convert;
     }
-// // Get Detail Produk
-// $('#transaksi').on('click', function(e){
-//     e.preventDefault();
-//     $('.produk').show();
-//     var id = $(this).val();
-//     $.ajax({
-//         url: "{{ url('/produk/') }}/"+id,
-//         type: "GET",
-//         dataType: "json",
-//         success: function(data){
-//             console.log(data)
-//         }
-//     });
-// });
 </script>
   @yield('script')
 </body>

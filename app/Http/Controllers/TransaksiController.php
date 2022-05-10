@@ -3,6 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaksi;
+use App\Models\Produk;
+use App\Models\Toko;
+use App\Models\User;
+use Carbon\Carbon;
+use Auth;
+use Str;
+use DB;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -14,7 +21,8 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        return view('admin.sales.transaksi');
+        $transaksis = Transaksi::paginate(20);
+        return view('admin.sales.transaksi', compact('transaksis'));
     }
 
     /**
@@ -35,7 +43,27 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+        $produk = Produk::where('id', $request->id_produk)->first();
+        $user = Auth::user();
+
+        $data = [
+            'nama_produk' => $produk->nama_produk,
+            'nama_pembeli' => $request->nama_pembeli,
+            'kode_transaksi' => strtoupper(Str::random(3).mt_rand(1000000, 9999999)),
+            'id_toko' => $produk->id_toko,
+            'id_produk' => $produk->id,
+            'id_cashier' => $user->id ?? 0,
+            'jumlah' => $request->jumlah,
+            'harga' => (int)$produk->harga,
+            'total' => $request->jumlah * $produk->harga,
+            'created_at' => Carbon::now(),
+        ];
+        $transaksi = Transaksi::create($data);
+            return redirect()->back()->withInput()->with(['success' => 'Transaksi berhasil ditambahkan']);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'error', 'message' => $th->getMessage()]);
+        }
     }
 
     /**

@@ -15,6 +15,7 @@ class CreateTransaksisTable extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_transaksi');
             $table->string('nama_pembeli');
             $table->string('nama_produk');
             $table->string('harga');
@@ -23,6 +24,7 @@ class CreateTransaksisTable extends Migration
             $table->integer('id_toko');
             $table->integer('id_produk');
             $table->integer('id_cashier');
+            $table->integer('status');
             $table->timestamps();
         });
     }
