@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use Auth;
+use DB;
+use Hash;
 use App\Models\Transaksi;
 
 use Illuminate\Http\Request;
@@ -15,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -26,16 +29,30 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $topProduk = DB::select("select * from produks p
-        left join (select id,id_produk,jumlah, sum(id) as laku from transaksis t group by t.id_produk ) t on t.id_produk = p.id
-        where p.id_toko = ? limit 1
-        ", [$user->id ?? 1]);
-        $topProduk = DB::select("select * from produks p
-        left join (select id,id_produk,jumlah, sum(id) as laku from transaksis t group by t.id_produk ) t on t.id_produk = p.id
-        where p.id_toko = ? limit 5", [$user->id ?? 1]);
-
-        $listTransaksi = Transaksi::where('id_cashier', $user->id ?? 1)->paginate(10);
-        return view('main', compact('topProduk', 'listTransaksi'));
+        // $topProduk = [];
+        if($user->role != 'admin'){
+            $todayTrans = DB::select("select * from transaksis e
+            left join (select id,id_produk,jumlah, sum(id) as laku from transaksis t group by t.id_produk ) t on t.id_produk = e.id_produk
+            where id_toko = $user->id_toko and e.created_at like '%".date('Y-m-d')."%'
+            ");
+            $topProduk = DB::select("select p.*, t.id, jumlah, total, sum(jumlah) as laku from transaksis t
+            left join ( select * from produks p) p on p.id = t.id_produk
+            where p.id_toko = ?
+            group by p.id limit 5
+            ", [$user->id_toko ?? 1]);
+            $listTransaksi = Transaksi::where('id_cashier', $user->id_toko ?? 1)->paginate(10);
+        }else{
+            $todayTrans = DB::select("select * from transaksis d
+            left join (select id,id_produk,jumlah, sum(id) as laku from transaksis t group by t.id_produk ) t on t.id_produk = d.id_produk
+            where d.created_at like '%".date('Y-m-d')."%'
+            ");
+            $topProduk = DB::select("select * from produks p
+            left join (select id,id_produk,jumlah, sum(id) as laku from transaksis t group by t.id_produk ) t on t.id_produk = p.id
+            limit 1
+            ");
+            $listTransaksi = Transaksi::paginate(10)->OrderBy('created_at', 'desc');
+        }
+        return view('main', compact('topProduk', 'listTransaksi', 'todayTrans'));
     }
 
     public function sales()
@@ -48,7 +65,9 @@ class HomeController extends Controller
 
     public function salesCreate(Request $request)
     {
-        $data = User::create($request->except('_token'));
+        $inputan = $request->except('_token', 'password');
+        $inputan['password'] = Hash::make($request->password);
+        $data = User::create($inputan);
         if ($data) {
             return redirect()->back()->with('success', 'Sales berhasil ditambahkan');
         } else {

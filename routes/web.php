@@ -14,10 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('main');
+    return view('login');
 });
 
 Auth::routes();
+
+// CUstom Auth
+Route::post('/logins', [App\Http\Controllers\AuthController::class, 'store'])->name('logins');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/sales', [App\Http\Controllers\HomeController::class, 'sales'])->name('sales');

@@ -119,7 +119,7 @@
           <ul class="sidebar-menu">
               <li class="menu-header">Home</li>
               <li class="nav-item dropdown active">
-                <a href="/" class="nav-link"><i class="fas fa-fire"></i><span>Home</span></a>
+                <a href="/home" class="nav-link"><i class="fas fa-fire"></i><span>Home</span></a>
               </li>
               <li class="menu-header">Administrator</li>
               <li><a class="nav-link" href="/kategori"><i class="far fa-square"></i> <span>Kategori</span></a></li>

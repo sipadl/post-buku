@@ -60,6 +60,9 @@ class TransaksiController extends Controller
             'created_at' => Carbon::now(),
         ];
         $transaksi = Transaksi::create($data);
+        if($transaksi){
+            Produk::where('id', $request->id_produk)->update(['stok' => $produk->stok - $request->jumlah]);
+        }
             return redirect()->back()->withInput()->with(['success' => 'Transaksi berhasil ditambahkan']);
         } catch (\Throwable $th) {
             return response()->json(['status' => 'error', 'message' => $th->getMessage()]);
