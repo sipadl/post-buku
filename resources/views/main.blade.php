@@ -4,18 +4,18 @@
     <div class="col-lg-4 col-md-4 col-sm-12">
       <div class="card card-statistic-2">
         <div class="card-stats">
-          <div class="card-stats-title">Order Statistics</div>
+          <div class="card-stats-title">Order Statistics this month</div>
           <div class="card-stats-items justify-content-between">
             <div class="card-stats-item">
-              <div class="card-stats-item-count">24</div>
-              <div class="card-stats-item-label">Batal</div>
+              <div class="card-stats-item-count">{{ $cancel }}</div>
+              <div class="card-stats-item-label">Pending</div>
             </div>
             {{-- <div class="card-stats-item">
               <div class="card-stats-item-count">12</div>
               <div class="card-stats-item-label">Shipping</div>
             </div> --}}
             <div class="card-stats-item">
-              <div class="card-stats-item-count">12</div>
+              <div class="card-stats-item-count">{{ $sum }}</div>
               <div class="card-stats-item-label">Berhasil</div>
             </div>
           </div>
@@ -28,7 +28,7 @@
             <h4>Penjualan</h4>
           </div>
           <div class="card-body">
-            59
+              {{ $sum + $cancel }}
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
             <h4>Pendapatan</h4>
           </div>
           <div class="card-body">
-            $187,13
+            Rp. {{ number_format($pendapatan,0,',','.') }}
           </div>
         </div>
       </div>
@@ -58,7 +58,7 @@
             <h4>Sales</h4>
           </div>
           <div class="card-body">
-            4,732
+            {{$sales}}
           </div>
         </div>
       </div>
@@ -131,9 +131,9 @@
                         <td><a href="#">{{ $trans->kode_transaksi }}</a></td>
                         <td class="font-weight-600">{{ $trans->nama_pembeli }}</td>
                         <td><div class="badge badge-success">Paid</div></td>
-                        <td>July 19, 2018</td>
+                        <td>{{ $trans->created_at }}</td>
                         <td>
-                        <a href="#" class="btn btn-primary">Detail</a>
+                        <a href="#" class="btn btn-primary">git Detail</a>
                         </td>
                     </tr>
                     @endforeach

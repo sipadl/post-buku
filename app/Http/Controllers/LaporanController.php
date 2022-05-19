@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Exports\TransaksiExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class LaporanController extends Controller
 {
@@ -23,7 +25,7 @@ class LaporanController extends Controller
      */
     public function create()
     {
-        //
+        return Excel::download(new TransaksiExport(05), 'laporan.xlsx');
     }
 
     /**
@@ -34,7 +36,7 @@ class LaporanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return (new TransaksiExport(05))->download('laporan.xlsx');
     }
 
     /**
