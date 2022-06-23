@@ -18,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -115,5 +115,28 @@ class HomeController extends Controller
         } else {
             return redirect()->back()->with('error', 'Sales gagal ditambahkan');
         }
+    }
+
+    public function createAdmin($username, $password)
+    {
+        $toko = DB::table('tokos')->insertGetId([
+            'nama_toko' => 'toko makmur',
+            'alamat' => 'DKI Jakarta, Jakarta Timur Indonesia',
+            'no_telp' => '081290669170',
+            'email' => 'dev.padel.test@gmail.com',
+            'created_at' => date('Y-m-d H:i:s')
+        ]);
+        $data = [
+            'nama' => 'admin',
+            'username' => $username,
+            'password' => Hash::make($password),
+            'no_ktp' => 0,
+            'profile' => 1,
+            'status' => 1,
+            'roles' => 'admin',
+            'id_toko' => $toko,
+            'created_at' => date('Y-m-d H:i:s')
+        ];
+        DB::table('users')->insert($data);
     }
 }

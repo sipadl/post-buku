@@ -52,12 +52,12 @@ class ProdukController extends Controller
      * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function show($id, $id_toko = null)
+    public function show($id)
     {
         $toko = $id_toko ?? 1;
         $data = Produk::select('nama_produk','harga','nama_toko','stok')
         ->leftJoin('tokos', 'produks.id_toko', '=', 'tokos.id')
-        ->where('produks.id', $id)->where('id_toko', $toko)
+        ->where('produks.id', $id)
         ->first();
         return response()->json(['data' => $data]);
     }

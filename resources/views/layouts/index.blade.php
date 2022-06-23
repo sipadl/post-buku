@@ -104,7 +104,7 @@
                 <i class="fas fa-cog"></i> Pengaturan
               </a>
               <div class="dropdown-divider"></div>
-              <a href="/keluar" class="dropdown-item has-icon text-danger">
+              <a href="/logouts" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Keluar
               </a>
             </div>
@@ -135,7 +135,7 @@
               <li class="nav-item dropdown">
                 <a href="/pengaturan" class="nav-link"><i class="fas fa-fire"></i><span>Pengaturan</span></a>
                 <a href="/profile" class="nav-link"><i class="fas fa-fire"></i><span>Profile</span></a>
-                <a href="/logout" class="nav-link"><i class="fas fa-fire"></i><span>Keluar</span></a>
+                <a href="/logouts" class="nav-link"><i class="fas fa-fire"></i><span>Keluar</span></a>
               </li>
           </ul>
         </aside>
@@ -362,7 +362,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modalTransaksi">Tambah Sales</h5>
+          <h5 class="modal-title" id="modalTransaksi">Tambah Transaksi</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
