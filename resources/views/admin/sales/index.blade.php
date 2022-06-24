@@ -42,6 +42,8 @@
                     @endif
                 </tbody>
             </table>
+            {{$data->links('vendor.pagination.bootstrap-4')}}
+
         </div>
     </div>
 </div>

@@ -46,6 +46,7 @@
                     @endif
                 </tbody>
             </table>
+            {{$produk->links('vendor.pagination.bootstrap-4')}}
         </div>
     </div>
 </div>

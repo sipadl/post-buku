@@ -128,12 +128,12 @@
                 @if(count($todayTrans) > 0)
                     @foreach($todayTrans as $trans)
                     <tr>
-                        <td><a href="#">{{ $trans->kode_transaksi ?? '' }}</a></td>
+                        <td><a href="#">{{ 'HRVST-M-D-'.$trans->kode_transaksi ?? '' }}</a></td>
                         <td class="font-weight-600">{{ $trans->nama_pembeli }}</td>
                         <td><div class="badge badge-success">Paid</div></td>
                         <td>{{ $trans->created_at }}</td>
                         <td>
-                        <a href="#" class="btn btn-primary">git Detail</a>
+                        <a href="#" class="btn btn-primary">Detail</a>
                         </td>
                     </tr>
                     @endforeach
