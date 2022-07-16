@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Produk;
+use App\Models\Toko;
+use App\Models\Categori;
 use Auth;
 use DB;
 use Hash;
@@ -44,6 +47,10 @@ class HomeController extends Controller
             $cancel = $this->sumCancelTransaksi($user->id_toko);
             $sum = $this->sumTransaksi($user->id_toko);
             $pendapatan = $this->pendpatan($user->id_toko);
+
+            $allTransaksi = Transaksi::where('id_cashier', $user->id_toko ?? 1)->count();
+            $presentaseMin = $cancel ? ($cancel/$allTransaksi)/100 : 0;
+            $presentaseMax = $sum ? ($sum/$allTransaksi)/100 : 0;
         }else{
             $pendapatan = $this->pendpatan(null, true);
             $sales = $this->countSales(null , true);
@@ -57,8 +64,10 @@ class HomeController extends Controller
             limit 1
             ");
             $listTransaksi = Transaksi::paginate(10)->OrderBy('created_at', 'desc');
+            $presentaseMin = $cancel ? ($cancel/$allTransaksi)/100 : 0;
+            $presentaseMax = $sum ? ($sum/$allTransaksi)/100 : 0;
         }
-        return view('main', compact('topProduk', 'listTransaksi', 'todayTrans', 'sum', 'cancel', 'sales', 'pendapatan'));
+        return view('main', compact('topProduk', 'listTransaksi', 'todayTrans', 'sum', 'cancel', 'sales', 'pendapatan', 'presentaseMin', 'presentaseMax'));
     }
 
 
@@ -99,9 +108,7 @@ class HomeController extends Controller
 
     public function sales()
     {
-        $data = User::where('roles','user')
-        ->leftJoin('tokos', 'users.id_toko', '=', 'tokos.id')
-        ->get();
+        $data = DB::select('select u.*, t.nama_toko from users u left join tokos t on t.id = u.id_toko where u.roles = "user"');
         return view('admin.sales.index', compact('data'));
     }
 
@@ -138,5 +145,80 @@ class HomeController extends Controller
             'created_at' => date('Y-m-d H:i:s')
         ];
         DB::table('users')->insert($data);
+    }
+
+    public function ubahProduk($id)
+    {
+        $produk = Produk::find($id);
+        $kategori = Categori::all();
+        $toko = Toko::all();
+        return view('admin.produk.ubahproduk', compact('produk' , 'kategori' ,'toko'));
+    }
+
+    public function postUbahProduk(Request $request, $id)
+    {
+        $data = Produk::find($id);
+        $data->update(request()->except('_token'));
+        return redirect()->route('produk')->with('success', 'Produk berhasil diubah');
+    }
+
+    public function deleteProduk($id)
+    {
+        Produk::where('id', $id)->delete();
+    }
+
+    public function ubahKategori($id)
+    {
+        $kategori = Categori::find($id);
+        return view('admin.categori.ubahkategori', compact('kategori'));
+    }
+
+    public function postUbahKategori(Request $request, $id)
+    {
+        $data = Categori::find($id);
+        $data->update(request()->except('_token'));
+        return redirect()->route('/kategori')->with('success', 'Kategori berhasil diubah');
+    }
+
+    public function hapusKategori($id)
+    {
+        Categori::where('id', $id)->delete();
+    }
+
+    public function ubahSales($id)
+    {
+        $sales = User::find($id);
+        $toko = Toko::all();
+        return view('admin.sales.ubahsales', compact('sales', 'toko'));
+    }
+
+    public function postUbahSales(Request $request, $id)
+    {
+        $data = User::find($id);
+        $data->update(request()->except('_token'));
+        return redirect()->route('sales')->with('success', 'Sales berhasil diubah');
+    }
+
+    public function ubahToko($id)
+    {
+        $toko = Toko::find($id);
+        return view('admin.toko.ubahtoko', compact('toko'));
+    }
+
+    public function deleteSales($id)
+    {
+        User::where('id', $id)->delete();
+    }
+
+    public function udahTokoPost(Request $request, $id)
+    {
+        $data = Toko::find($id);
+        $data->update(request()->except('_token'));
+        return redirect()->route('toko')->with('success', 'Toko berhasil diubah');
+    }
+
+    public function deleteToko($id)
+    {
+        Toko::where('id', $id)->delete();
     }
 }

@@ -38,8 +38,8 @@
                         <td>Rp {{ number_format($prod->harga,0) }}</td>
                         <td>{{ $prod->stok }} Pcs</td>
                         <td class="text-center">
-                            <a href="#" class="btn btn-primary">Ubah</a>
-                            <a href="#" class="btn btn-danger">Hapus</a>
+                            <a href="{{ route('ubahProduk', [$prod->id]) }}" class="btn btn-primary">Ubah</a>
+                            <a href="{{ route('deleteProduk', [$prod->id]) }}" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
                     @endforeach

@@ -31,8 +31,8 @@
                         <td>{{ $no++ }}</td>
                         <td>{{ $cat->nama_kategori }}</td>
                         <td class="text-center">
-                            <a href="#" class="btn btn-primary">Ubah</a>
-                            <a href="#" class="btn btn-danger">Hapus</a>
+                            <a href="{{ route('ubahKategori', [$cat->id]) }}" class="btn btn-primary">Ubah</a>
+                            <a href="{{ route('hapusKategori', [$cat->id]) }}" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
                     @endforeach

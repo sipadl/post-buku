@@ -29,7 +29,7 @@
             <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
             {{-- <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li> --}}
           </ul>
-          <div class="search-element">
+          {{-- <div class="search-element">
             <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250">
             <button class="btn" type="submit"><i class="fas fa-search"></i></button>
             <div class="search-backdrop"></div>
@@ -90,19 +90,19 @@
                 </a>
               </div>
             </div>
-          </div>
+          </div> --}}
         </form>
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block">Hi, Admin</div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a href="/profile" class="dropdown-item has-icon">
+              {{-- <a href="/profile" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
               </a>
               <a href="/pengaturan" class="dropdown-item has-icon">
                 <i class="fas fa-cog"></i> Pengaturan
-              </a>
+              </a> --}}
               <div class="dropdown-divider"></div>
               <a href="/logouts" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Keluar
@@ -133,8 +133,8 @@
               </li>
               <li class="menu-header">Akun</li>
               <li class="nav-item dropdown">
-                <a href="/pengaturan" class="nav-link"><i class="fas fa-fire"></i><span>Pengaturan</span></a>
-                <a href="/profile" class="nav-link"><i class="fas fa-fire"></i><span>Profile</span></a>
+                {{-- <a href="/pengaturan" class="nav-link"><i class="fas fa-fire"></i><span>Pengaturan</span></a>
+                <a href="/profile" class="nav-link"><i class="fas fa-fire"></i><span>Profile</span></a> --}}
                 <a href="/logouts" class="nav-link"><i class="fas fa-fire"></i><span>Keluar</span></a>
               </li>
           </ul>
@@ -149,7 +149,7 @@
       </div>
       <footer class="main-footer">
         <div class="footer-left">
-          Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Stisla</a>
+          {{-- Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Stisla</a> --}}
         </div>
         <div class="footer-right">
           2.3.0

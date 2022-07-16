@@ -10,10 +10,6 @@
               <div class="card-stats-item-count">{{ $cancel }}</div>
               <div class="card-stats-item-label">Pending</div>
             </div>
-            {{-- <div class="card-stats-item">
-              <div class="card-stats-item-count">12</div>
-              <div class="card-stats-item-label">Shipping</div>
-            </div> --}}
             <div class="card-stats-item">
               <div class="card-stats-item-count">{{ $sum }}</div>
               <div class="card-stats-item-label">Berhasil</div>
@@ -34,20 +30,33 @@
       </div>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-12">
-      <div class="card card-statistic-2">
-        <div class="card-icon shadow-primary bg-primary">
-          <i class="fas fa-dollar-sign"></i>
-        </div>
-        <div class="card-wrap">
-          <div class="card-header">
-            <h4>Pendapatan</h4>
+        <div class="card card-statistic-2">
+          <div class="card-stats">
+            <div class="card-stats-title">Presentase Penjualan</div>
+            <div class="card-stats-items justify-content-between">
+              <div class="card-stats-item">
+                <div class="card-stats-item-count">{{ $presentaseMin }}</div>
+                <div class="card-stats-item-label">Pending</div>
+              </div>
+              <div class="card-stats-item">
+                <div class="card-stats-item-count">{{ $presentaseMax }}</div>
+                <div class="card-stats-item-label">Berhasil</div>
+              </div>
+            </div>
           </div>
-          <div class="card-body">
-            Rp. {{ number_format($pendapatan,0,',','.') }}
+          <div class="card-icon shadow-primary bg-primary">
+            <i class="fas fa-archive"></i>
+          </div>
+          <div class="card-wrap">
+            <div class="card-header">
+              <h4>Pendapatan</h4>
+            </div>
+            <div class="card-body">
+                Rp. {{ number_format($pendapatan,0,',','.') }}
+            </div>
           </div>
         </div>
       </div>
-    </div>
     <div class="col-lg-4 col-md-4 col-sm-12">
       <div class="card card-statistic-2">
         <div class="card-icon shadow-primary bg-primary">

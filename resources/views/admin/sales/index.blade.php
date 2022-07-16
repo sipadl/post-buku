@@ -34,8 +34,8 @@
                         <td>{{ $sales->nama }}</td>
                         <td>{{ $sales->nama_toko }}</td>
                         <td class="text-center">
-                            <a href="#" class="btn btn-primary">Ubah</a>
-                            <a href="#" class="btn btn-danger">Hapus</a>
+                            <a href="{{ route('ubahSales', [$sales->id]) }}" class="btn btn-primary">Ubah</a>
+                            <a href="{{ route('deleteSales' ,[$sales->id]) }}" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
                     @endforeach
