@@ -46,6 +46,8 @@
                     @endif
                 </tbody>
             </table>
+            {{$toko->links('vendor.pagination.bootstrap-4')}}
+
         </div>
     </div>
 </div>

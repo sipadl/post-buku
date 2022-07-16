@@ -36,11 +36,15 @@ class HomeController extends Controller
         if($user->role != 'admin'){
             $todayTrans = DB::select("select * from transaksis e
             left join (select id,id_produk,jumlah, sum(id) as laku from transaksis t group by t.id_produk ) t on t.id_produk = e.id_produk
-            where id_toko = $user->id_toko and date_format(e.created_at,'%m') = ".date('m'));
-            $topProduk = DB::select("select p.*, t.id, jumlah, total, sum(jumlah) as laku from transaksis t
-            left join ( select * from produks p) p on p.id = t.id_produk
-            where p.id_toko = ?
-            group by p.id limit 5
+            where id_toko = $user->id_toko and date_format(e.created_at,'%m') = ".date('m')." limit 9");
+            $topProduk = DB::select("select p.*, p.id, t.id_produk,t.id_toko, sum(jumlah) as laku from transaksis t
+            left join ( select * from produks p) p
+            on p.item_id = t.id_produk
+            where date_format(t.created_at, '%m') = date_format(now(), '%m' )
+            and t.id_toko = ?
+            group by t.id_produk
+            order by laku desc
+            limit 5
             ", [$user->id_toko ?? 1]);
             $listTransaksi = Transaksi::where('id_cashier', $user->id_toko ?? 1)->paginate(10);
             $sales = $this->countSales($user->id_toko);
@@ -108,7 +112,13 @@ class HomeController extends Controller
 
     public function sales()
     {
+<<<<<<< HEAD
         $data = DB::select('select u.*, t.nama_toko from users u left join tokos t on t.id = u.id_toko where u.roles = "user"');
+=======
+        $data = User::where('roles','user')
+        ->leftJoin('tokos', 'users.id_toko', '=', 'tokos.id')
+        ->paginate(20);
+>>>>>>> 4ac8b223b778fe247a1a91415e7860ee0d1e5b91
         return view('admin.sales.index', compact('data'));
     }
 

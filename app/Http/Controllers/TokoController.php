@@ -14,7 +14,7 @@ class TokoController extends Controller
      */
     public function index()
     {
-        $toko = Toko::all();
+        $toko = Toko::paginate(10);
         return view('admin.toko.index', compact('toko'));
     }
 
