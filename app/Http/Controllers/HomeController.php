@@ -112,13 +112,10 @@ class HomeController extends Controller
 
     public function sales()
     {
-<<<<<<< HEAD
         $data = DB::select('select u.*, t.nama_toko from users u left join tokos t on t.id = u.id_toko where u.roles = "user"');
-=======
-        $data = User::where('roles','user')
-        ->leftJoin('tokos', 'users.id_toko', '=', 'tokos.id')
-        ->paginate(20);
->>>>>>> 4ac8b223b778fe247a1a91415e7860ee0d1e5b91
+        // $data = User::where('roles','user')
+        // ->leftJoin('tokos', 'users.id_toko', '=', 'tokos.id')
+        // ->paginate(20);
         return view('admin.sales.index', compact('data'));
     }
 
