@@ -121,6 +121,7 @@
               <li class="nav-item dropdown active">
                 <a href="/home" class="nav-link"><i class="fas fa-fire"></i><span>Home</span></a>
               </li>
+              @if(Auth::user()->roles == 'admin')
               <li class="menu-header">Administrator</li>
               <li><a class="nav-link" href="/kategori"><i class="far fa-square"></i> <span>Kategori</span></a></li>
               <li><a class="nav-link" href="/produk"><i class="far fa-square"></i> <span>Produk</span></a></li>
@@ -131,6 +132,12 @@
                 <a href="/transaksi" class="nav-link"><i class="fas fa-fire"></i><span>Transaksi</span></a>
                 <a href="/laporan" class="nav-link"><i class="fas fa-fire"></i><span>Laporan</span></a>
               </li>
+              @else
+              <li class="nav-item dropdown">
+                <a href="/transaksi" class="nav-link"><i class="fas fa-fire"></i><span>Transaksi</span></a>
+                <a href="/laporan" class="nav-link"><i class="fas fa-fire"></i><span>Laporan</span></a>
+              </li>
+              @endif
               <li class="menu-header">Akun</li>
               <li class="nav-item dropdown">
                 {{-- <a href="/pengaturan" class="nav-link"><i class="fas fa-fire"></i><span>Pengaturan</span></a>
