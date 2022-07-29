@@ -35,11 +35,11 @@
             <div class="card-stats-title">Presentase Penjualan</div>
             <div class="card-stats-items justify-content-between">
               <div class="card-stats-item">
-                <div class="card-stats-item-count">{{ $presentaseMin }}</div>
+                <div class="card-stats-item-count">{{ $presentaseMin .'%' }}</div>
                 <div class="card-stats-item-label">Pending</div>
               </div>
               <div class="card-stats-item">
-                <div class="card-stats-item-count">{{ $presentaseMax }}</div>
+                <div class="card-stats-item-count">{{ $presentaseMax .'%' }}</div>
                 <div class="card-stats-item-label">Berhasil</div>
               </div>
             </div>
@@ -132,7 +132,7 @@
                 <th>Customer</th>
                 <th>Status</th>
                 <th>Due Date</th>
-                <th>Action</th>
+                {{-- <th>Action</th> --}}
               </tr>
                 @if(count($todayTrans) > 0)
                     @foreach($todayTrans as $trans)
@@ -142,7 +142,7 @@
                         <td><div class="badge badge-success">Paid</div></td>
                         <td>{{ $trans->created_at }}</td>
                         <td>
-                        <a href="#" class="btn btn-primary">Detail</a>
+                        {{-- <a href="#" class="btn btn-primary">Detail</a> --}}
                         </td>
                     </tr>
                     @endforeach

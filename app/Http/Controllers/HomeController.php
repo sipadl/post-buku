@@ -52,9 +52,10 @@ class HomeController extends Controller
             $sum = $this->sumTransaksi($user->id_toko);
             $pendapatan = $this->pendpatan($user->id_toko);
 
-            $allTransaksi = Transaksi::where('id_cashier', $user->id_toko ?? 1)->count();
+            $allTransaksi = Transaksi::where('id_cashier', $user->id_toko ?? 1)->where('status', 1)->count();
             $presentaseMin = $cancel ? ($cancel/$allTransaksi)*100 : 0;
-            $presentaseMax = $sum ? ($sum/$allTransaksi)*100 : 0;
+
+            $presentaseMax = $sum ? ($sum/$allTransaksi) * 100 : 0;
         }else{
             $pendapatan = $this->pendpatan(null, true);
             $sales = $this->countSales(null , true);
@@ -69,7 +70,7 @@ class HomeController extends Controller
             ");
             $listTransaksi = Transaksi::paginate(10)->OrderBy('created_at', 'desc');
             $presentaseMin = $cancel ? ($cancel/$allTransaksi)*100 : 0;
-            $presentaseMax = $sum ? ($sum/$allTransaksi)*100 : 0;
+            $presentaseMax = $sum ? ($sum/$allTransaksi) * 100 : 0;
         }
         return view('main', compact('topProduk', 'listTransaksi', 'todayTrans', 'sum', 'cancel', 'sales', 'pendapatan', 'presentaseMin', 'presentaseMax'));
     }
@@ -86,9 +87,9 @@ class HomeController extends Controller
     private function sumTransaksi($toko ,$admin = null)
     {
         if($admin) {
-            return DB::select("select sum(id) as jumlah from transaksis where status = 1 and date_format(created_at, '%m') = ".date('m'))[0]->jumlah ?? 0;
+            return DB::select("select count(id) as jumlah from transaksis where status = 1 and date_format(created_at, '%m') = ".date('m'))[0]->jumlah ?? 0;
         }else{
-            return DB::select("select sum(id) as jumlah from transaksis where status = 1 and id_toko = $toko and date_format(created_at, '%m') = ".date('m'))[0]->jumlah ?? 0;
+            return DB::select("select count(id) as jumlah from transaksis where status = 1 and id_toko = $toko and date_format(created_at, '%m') = ".date('m'))[0]->jumlah ?? 0;
         }
     }
 
