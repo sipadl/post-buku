@@ -58,6 +58,7 @@ class TransaksiController extends Controller
             'harga' => (int)$produk->harga,
             'total' => $request->jumlah * $produk->harga,
             'created_at' => Carbon::now(),
+            'status' => 1
         ];
         $transaksi = Transaksi::create($data);
         if($transaksi){

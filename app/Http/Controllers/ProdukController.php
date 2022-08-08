@@ -54,7 +54,6 @@ class ProdukController extends Controller
      */
     public function show($id)
     {
-        $toko = $id_toko ?? 1;
         $data = Produk::select('nama_produk','harga','nama_toko','stok')
         ->leftJoin('tokos', 'produks.id_toko', '=', 'tokos.id')
         ->where('produks.id', $id)
