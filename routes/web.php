@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('login');
 });
 
-Auth::routes();
+// Auth::routes();
 
 // CUstom Auth
 Route::post('/logins', [App\Http\Controllers\AuthController::class, 'store'])->name('logins');
