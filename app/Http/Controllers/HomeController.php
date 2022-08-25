@@ -54,8 +54,7 @@ class HomeController extends Controller
 
             $allTransaksi = Transaksi::where('id_cashier', $user->id_toko ?? 1)->where('status', 1)->count();
             $presentaseMin = $cancel ? ($cancel/$allTransaksi)*100 : 0;
-
-            $presentaseMax = $sum ? ($sum/$allTransaksi) * 100 : 0;
+            $presentaseMax = $sum ? $sum/$sum * 100 : 0;
         }else{
             $pendapatan = $this->pendpatan(null, true);
             $sales = $this->countSales(null , true);
@@ -70,7 +69,7 @@ class HomeController extends Controller
             ");
             $listTransaksi = Transaksi::paginate(10)->OrderBy('created_at', 'desc');
             $presentaseMin = $cancel ? ($cancel/$allTransaksi)*100 : 0;
-            $presentaseMax = $sum ? ($sum/$allTransaksi) * 100 : 0;
+            $presentaseMax = $sum ? $sum/$sum * 100 : 0;
         }
         return view('main', compact('topProduk', 'listTransaksi', 'todayTrans', 'sum', 'cancel', 'sales', 'pendapatan', 'presentaseMin', 'presentaseMax'));
     }
