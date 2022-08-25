@@ -1,9 +1,9 @@
 @extends('layouts.index')
 @section('content')
 <div class="card row">
-        <h4 class="card-title col-md-8 col-sm-12 p-4">Transaksi</h4>
+        <h4 class="card-title col-md-8 col-sm-12 p-4">Transaksi Pending</h4>
         <div class="col-md-12 col-sm-12">
-            <a class="btn btn-primary w-100" href="#" data-toggle="modal" data-target="#modalTransaksi">Transaksi Baru</a>
+            {{-- <a class="btn btn-primary w-100" href="#" data-toggle="modal" data-target="#modalTransaksi">Transaksi Baru</a> --}}
         </div>
     <br>
     <div class="col-md-12 col-sm-12">
@@ -17,7 +17,7 @@
                         <th>Harga</th>
                         <th>Qty</th>
                         <th>Total</th>
-                        {{-- <th>Bayar</th> --}}
+                        <th>Bayar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,10 +32,10 @@
                         <td>{{number_format($item->harga,0)}}</td>
                         <td>{{$item->jumlah}}</td>
                         <td>{{number_format($item->total,0)}}</td>
-                        {{-- <td>
-                            <span><a class="btn btn-primary"href="">Berhasil</a></span>
-                            <span><a class="btn btn-danger" href="">Gagal</a></span>
-                        </td> --}}
+                        <td>
+                            <span><a class="btn btn-primary"href="{{ route('sukses', $item->id) }}">Berhasil</a></span>
+                            <span><a class="btn btn-danger" href="{{ route('gagal', $item->id) }}">Gagal</a></span>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

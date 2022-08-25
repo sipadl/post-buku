@@ -46,5 +46,8 @@ Route::get('/sales/ubah/{id}', [App\Http\Controllers\HomeController::class, 'uba
 Route::post('/sales/ubah/{id}/post', [App\Http\Controllers\HomeController::class, 'postUbahSales'])->name('postUbahSales');
 Route::get('/sales/hapus/{id}', [App\Http\Controllers\HomeController::class, 'deleteSales'])->name('deleteSales');
 Route::get('/toko/ubah/{id}', [App\Http\Controllers\HomeController::class, 'ubahToko'])->name('ubahToko');
-Route::post('/toko/ubah/{id}/post', [App\Http\Controllers\HomeController::class, 'postUbahToko'])->name('postUbahToko');
+Route::post('/toko/ubah/{id}/post', [App\Http\Controllers\HomeController::class, 'udahTokoPost'])->name('postUbahToko');
 Route::get('/toko/hapus/{id}/post', [App\Http\Controllers\HomeController::class, 'deleteToko'])->name('deleteToko');
+Route::get('/bayar', [App\Http\Controllers\HomeController::class, 'bayar'])->name('Bayar');
+Route::get('/bayarSukses/{id}', [App\Http\Controllers\HomeController::class, 'bayarsukses'])->name('sukses');
+Route::get('/bayarGagal/{id}', [App\Http\Controllers\HomeController::class, 'bayargagal'])->name('gagal');

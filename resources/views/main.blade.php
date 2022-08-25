@@ -8,7 +8,7 @@
           <div class="card-stats-items justify-content-between">
             <div class="card-stats-item">
               <div class="card-stats-item-count">{{ $cancel }}</div>
-              <div class="card-stats-item-label">Pending</div>
+              <div class="card-stats-item-label">Gagal</div>
             </div>
             <div class="card-stats-item">
               <div class="card-stats-item-count">{{ $sum }}</div>
@@ -35,11 +35,11 @@
             <div class="card-stats-title">Presentase Penjualan</div>
             <div class="card-stats-items justify-content-between">
               <div class="card-stats-item">
-                <div class="card-stats-item-count">{{ $presentaseMin .'%' }}</div>
-                <div class="card-stats-item-label">Pending</div>
+                <div class="card-stats-item-count">{{ round($presentaseMin, 2) .'%' }}</div>
+                <div class="card-stats-item-label">Gagal</div>
               </div>
               <div class="card-stats-item">
-                <div class="card-stats-item-count">{{ $presentaseMax .'%' }}</div>
+                <div class="card-stats-item-count">{{ round($presentaseMax, 2) .'%' }}</div>
                 <div class="card-stats-item-label">Berhasil</div>
               </div>
             </div>
@@ -119,7 +119,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4>Transaksi Hari Ini</h4>
+          <h4>Transaksi Bulan Ini</h4>
           <div class="card-header-action">
             <a href="/transaksi" class="btn btn-danger">Lihat Lainnya <i class="fas fa-chevron-right"></i></a>
           </div>
@@ -141,9 +141,10 @@
                         <td class="font-weight-600">{{ $trans->nama_pembeli }}</td>
                         <td><div class="badge badge-success">Paid</div></td>
                         <td>{{ $trans->created_at }}</td>
-                        <td>
-                        {{-- <a href="#" class="btn btn-primary">Detail</a> --}}
-                        </td>
+                        {{-- <td>
+                        <a href="#" class="btn btn-primary">Pembayaran Berhasil</a>
+                        <a href="#" class="btn btn-primary">Pembayaran Gagal</a>
+                        </td> --}}
                     </tr>
                     @endforeach
                     @else

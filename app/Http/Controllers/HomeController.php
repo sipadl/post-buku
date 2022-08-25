@@ -33,7 +33,7 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         // $topProduk = [];
-        if($user->role != 'admin'){
+        if($user->roles != 'admin'){
             $todayTrans = DB::select("select * from transaksis e
             left join (select id,id_produk,jumlah, sum(id) as laku from transaksis t group by t.id_produk ) t on t.id_produk = e.id_produk
             where id_toko = $user->id_toko and date_format(e.created_at,'%m') = ".date('m')." limit 9");
@@ -52,9 +52,9 @@ class HomeController extends Controller
             $sum = $this->sumTransaksi($user->id_toko);
             $pendapatan = $this->pendpatan($user->id_toko);
 
-            $allTransaksi = Transaksi::where('id_cashier', $user->id_toko ?? 1)->where('status', 1)->count();
-            $presentaseMin = $cancel ? ($cancel/$allTransaksi)*100 : 0;
-            $presentaseMax = $sum ? $sum/$sum * 100 : 0;
+            $allTransaksi = Transaksi::where('id_cashier', $user->id_toko ?? 1)->count();
+            $presentaseMin = $cancel ? ($cancel/$allTransaksi) *100 : 0;
+            $presentaseMax = $sum ? ($sum/$allTransaksi) * 100 : 0;
         }else{
             $pendapatan = $this->pendpatan(null, true);
             $sales = $this->countSales(null , true);
@@ -62,14 +62,18 @@ class HomeController extends Controller
             $sum = $this->sumTransaksi(null, true);
             $todayTrans = DB::select("select * from transaksis d
             left join (select id,id_produk,jumlah, sum(id) as laku from transaksis t group by t.id_produk ) t on t.id_produk = d.id_produk
-            where date_format(d.created_at,'%m') = ".date('m'))[0] ?? 0;
-            $topProduk = DB::select("select * from produks p
-            left join (select id,id_produk,jumlah, sum(id) as laku from transaksis t group by t.id_produk ) t on t.id_produk = p.id
-            limit 1
-            ");
-            $listTransaksi = Transaksi::paginate(10)->OrderBy('created_at', 'desc');
+            where date_format(d.created_at,'%m') = ".date('m')) ?? 0;
+            $topProduk =  DB::select("select p.*, p.id, t.id_produk,t.id_toko, sum(jumlah) as laku from transaksis t
+            left join ( select * from produks p) p
+            on p.item_id = t.id_produk
+            where date_format(t.created_at, '%m') = date_format(now(), '%m' )
+            group by t.id_produk
+            order by laku desc
+            limit 5");
+            $allTransaksi = Transaksi::count();
+            $listTransaksi = Transaksi::paginate(10);
             $presentaseMin = $cancel ? ($cancel/$allTransaksi)*100 : 0;
-            $presentaseMax = $sum ? $sum/$sum * 100 : 0;
+            $presentaseMax = $sum ? ($sum/$allTransaksi) * 100 : 0;
         }
         return view('main', compact('topProduk', 'listTransaksi', 'todayTrans', 'sum', 'cancel', 'sales', 'pendapatan', 'presentaseMin', 'presentaseMax'));
     }
@@ -95,9 +99,9 @@ class HomeController extends Controller
     private function sumCancelTransaksi($toko ,$admin = null)
     {
         if($admin) {
-            return DB::select("select sum(id) as jumlah from transaksis where status = 0 and date_format(created_at, '%m') = ".date('m'))[0]->jumlah ?? 0;
+            return DB::select("select count(id) as jumlah from transaksis where status = 2 and date_format(created_at, '%m') = ".date('m'))[0]->jumlah ?? 0;
         }else{
-            return DB::select("select sum(id) as jumlah from transaksis where status = 0 and id_toko = $toko and date_format(created_at, '%m') = ".date('m'))[0]->jumlah ?? 0;
+            return DB::select("select count(id) as jumlah from transaksis where status = 2 and id_toko = $toko and date_format(created_at, '%m') = ".date('m'))[0]->jumlah ?? 0;
         }
     }
 
@@ -221,11 +225,27 @@ class HomeController extends Controller
     {
         $data = Toko::find($id);
         $data->update(request()->except('_token'));
-        return redirect()->route('toko')->with('success', 'Toko berhasil diubah');
+        return redirect()->back()->with('success', 'Toko berhasil diubah');
     }
 
     public function deleteToko($id)
     {
         Toko::where('id', $id)->delete();
+    }
+
+    public function bayar()
+    {
+        $transaksis = Transaksi::where('status', 0)->orderBy('created_at', 'DESC')->paginate(20);
+        return view('admin.sales.bayar', compact('transaksis'));
+    }
+
+    public function bayarsukses($id){
+        Transaksi::where('id', $id)->update(['status' => 1 ]);
+        return redirect()->back();
+    }
+
+    public function bayargagal($id){
+        Transaksi::where('id', $id)->update(['status' => 2 ]);
+        return redirect()->back();
     }
 }

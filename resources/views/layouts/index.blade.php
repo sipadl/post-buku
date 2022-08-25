@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Ecommerce Dashboard &mdash; Stisla</title>
+  <title>Dashboard</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -130,11 +130,13 @@
               <li class="menu-header">Sales</li>
               <li class="nav-item dropdown">
                 <a href="/transaksi" class="nav-link"><i class="fas fa-fire"></i><span>Transaksi</span></a>
+                <a href="/bayar" class="nav-link"><i class="fas fa-fire"></i><span>Pending</span></a>
                 <a href="/laporan" class="nav-link"><i class="fas fa-fire"></i><span>Laporan</span></a>
               </li>
               @else
               <li class="nav-item dropdown">
                 <a href="/transaksi" class="nav-link"><i class="fas fa-fire"></i><span>Transaksi</span></a>
+                <a href="/bayar" class="nav-link"><i class="fas fa-fire"></i><span>Pending</span></a>
                 <a href="/laporan" class="nav-link"><i class="fas fa-fire"></i><span>Laporan</span></a>
               </li>
               @endif

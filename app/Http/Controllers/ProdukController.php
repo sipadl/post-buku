@@ -15,7 +15,7 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $produk = Produk::join('categoris', 'produks.id_kategori', '=', 'categoris.id')->paginate(20);
+        $produk = Produk::select()->join('categoris', 'produks.id_kategori', '=', 'categoris.id')->select('produks.*','categoris.nama_kategori')->paginate(20);
         $categori = Categori::all();
         return view('admin.produk.index', compact('produk', 'categori'));
     }
