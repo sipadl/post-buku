@@ -81,7 +81,9 @@
         </div>
         <div class="card-body" id="top-5-scroll">
           <ul class="list-unstyled list-unstyled-border">
-            @foreach($topProduk as $produk)
+            <canvas id="barChart" width="400" height="400"></canvas>
+
+            {{-- @foreach($topProduk as $produk)
             <li class="media">
               <img class="mr-3 rounded" width="55" src="../assets/img/products/product-3-50.png" alt="product">
               <div class="media-body">
@@ -99,7 +101,7 @@
                 </div>
               </div>
             </li>
-            @endforeach
+            @endforeach --}}
           </ul>
         </div>
         <div class="card-footer pt-3 d-flex justify-content-center">
@@ -158,4 +160,42 @@
       </div>
     </div>
   </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('barChart');
+const barChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Top 1','Top 2', 'Top 3', 'Top 4', 'Top 5'],
+        datasets: [{
+            label: 'Paling Terlari No 1 ',
+            data: [{{(int)$topProduk[0]->laku}}, {{(int)$topProduk[1]->laku}}, {{(int)$topProduk[2]->laku}}, {{(int)$topProduk[3]->laku}}, {{(int)$topProduk[4]->laku}}],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
   @endsection

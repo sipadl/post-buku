@@ -9,6 +9,7 @@ use Auth;
 use DB;
 use Hash;
 use App\Models\Transaksi;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -70,11 +71,17 @@ class HomeController extends Controller
             group by t.id_produk
             order by laku desc
             limit 5");
+
+            // $topProduk1 = DB::table('transaksis t')
+            // ->select('p.*, p.id, t.id_produk')
+            // ->join('produks p','t.id_produk','=','p.id')
+            // ->whereMonth('t.created_at', date('m'))->get();
             $allTransaksi = Transaksi::count();
             $listTransaksi = Transaksi::paginate(10);
             $presentaseMin = $cancel ? ($cancel/$allTransaksi)*100 : 0;
             $presentaseMax = $sum ? ($sum/$allTransaksi) * 100 : 0;
         }
+
         return view('main', compact('topProduk', 'listTransaksi', 'todayTrans', 'sum', 'cancel', 'sales', 'pendapatan', 'presentaseMin', 'presentaseMax'));
     }
 
