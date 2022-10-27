@@ -77,7 +77,7 @@
     <div class="col-lg-12">
       <div class="card gradient-bottom">
         <div class="card-header">
-          <h4>Produk Terlaris</h4>
+          <h4>Produk Terlaris pada bulan ini sebanyak : {{ $sum }}</h4>
         </div>
         <div class="card-body" id="top-5-scroll">
           <ul class="list-unstyled list-unstyled-border">
@@ -192,7 +192,7 @@ const barChart = new Chart(ctx, {
     options: {
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: false
             }
         }
     }
